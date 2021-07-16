@@ -1,0 +1,66 @@
+
+<div class="card card-style"  style="width: 30rem;">
+  
+    <h5 class="card-title"><%= @student.name%> details: </h5>
+     <p class="card-text"><strong>Uuid: </strong>
+     <% if @student.uuid %>
+        <%= @student.uuid%>
+     <% else %>
+        <%= "nil" %>
+     <% end %>
+    </p>
+    <div class="card-body">
+    <p class="card-text"><strong>Name: </strong><%= @student.name%></p>
+    <p class="card-text"><strong>Gender: </strong><%= @student.gender%></p>
+    <p class="card-text"><strong>Date of Birth: </strong><%= @student.date_of_birth%></p>
+    <p class="card-text"><strong>Email: </strong> <%= @student.email%></p>
+    
+<p class="card-text">
+
+</p>
+      <p class="card-text ">
+     
+      <table cellpadding="10" class="table-bordered">
+         <thead>
+        <th scope="col">Subject</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Status</th>
+        </thead>
+        <tbody>
+        <tr>
+         <% @student.subjects.each do |subject|  %>
+         
+           <td>
+            <% subjectname = subject.name %>
+           <% if subjectname %>
+              <%= subject.name %>
+            <% else %>
+              <%= "nil" %>
+            <% end %>
+           </td>
+           <td>
+           <% subjectmarks = @student.marks.find {|m| m.subject_id == subject.id }.marks %>
+           <% if subjectmarks %>
+              <%= subjectmarks %>
+            <% else %>
+              <%= "nil" %>
+            <% end %>
+           </td>
+          <td>
+          <% subjectstatus = @student.marks.find {|m| m.subject_id == subject.id }.status %>
+           <% if subjectstatus %>
+              <%= subjectstatus %>
+            <% else %>
+              <%= "nil" %>
+            <% end %>
+          </td>
+          </tr>
+           <% end %>
+        </tbody>
+      </table>
+     
+      </p>
+      
+ <%= link_to "Back to students list", students_path, class: "btn btn-xs btn-primary" %>
+  </div>
+</div>

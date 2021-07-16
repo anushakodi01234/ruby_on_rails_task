@@ -1,0 +1,59 @@
+<%
+=begin%>
+ <h1>Showing marks</h1>
+<h2>Student Name:  <%= Student.find(@mark.student_id).name%></h2>
+<h2>Subject Name:  <%= Subject.find(@mark.subject_id).name%></h2>
+<h2>Marks:  <%= @mark.marks%></h2>
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Showing student marks</h5>
+    <p class="card-text"><strong>Student Name: </strong><%= Student.find(@mark.student_id).name%></p>
+    <p class="card-text"><strong>Subject Name </strong><%= Subject.find(@mark.subject_id).name%></p>
+    <p class="card-text"><strong>Marks: </strong><%= @mark.marks%></p> 
+<%
+=end%>
+    <%
+=begin%>
+ <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> 
+<%
+=end%>
+
+<% @mark.each do |student,marks| %>
+   <h5 class="card-title">student Name : <%= Student.find(student).name %></h5>
+  
+   <table cellpadding="10" class="table-bordered">
+         <thead>
+        <th scope="col">Subject</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Status</th>
+        </thead>
+        <tbody>
+        <tr>
+        <% i= 0 %>
+   <% marks.each do |mark|  %>
+       <td ><%= marks[i].subject.name%></td>
+        <td><%= mark.marks %></td>
+        <td><%= mark.status %></td>
+        <% i = i+1 %>
+        </tr>
+    <% end %>
+    </tbody>
+      </table>
+       
+<% end %>
+<%
+=begin%>
+ <% @mark.each do |mark| %>
+  <%= mark.inspect %>
+  <hr>
+<% end %> 
+<%
+=end%>
+   
+<br>
+ <%= link_to "Back to students marks list", marks_path, class: "btn btn-xs btn-primary" %>
+  
+

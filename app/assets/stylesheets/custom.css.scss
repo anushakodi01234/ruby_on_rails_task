@@ -1,0 +1,45 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.styling{
+    padding-left: 50px;
+    padding-top: 40px;
+    
+}
+.flex-box{
+    display: flex;
+    margin-bottom: 20px;
+}
+.label-width{
+    min-width: 200px;
+}
+.create-button{
+    margin-top: 80px;
+     margin-right: 370px;
+     position:absolute;
+     top:0;
+     right:0;
+}
+.text{
+    margin-top:-20px;
+     margin-bottom: 20px;
+}
+.form-input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+  }
+  .card-style{
+      padding-left: 10px;
+      padding-top: 5px;
+  }
+  .form-input {
+    width: 20%;
+            padding: 15px 15px;
+            margin: 5px 0;
+  }
+.toast-header{
+    background-color:salmon;
+}
+.toast-body{
+    background-color: salmon;
+}

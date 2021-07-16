@@ -1,0 +1,13 @@
+<%= render 'shared/errors', obj: @subject %>
+<%= form_with(model: @subject, local: true ) do |f| %>
+
+<p>
+<strong><%= f.label :name %></strong> :
+<%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>

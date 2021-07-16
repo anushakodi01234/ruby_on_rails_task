@@ -1,0 +1,48 @@
+<h4 class="text">Students Marks List </h4>
+<%= link_to 'Mark Student', new_mark_path, class: 'btn btn-xs btn-secondary create-button'%>
+
+<div class="row">
+<div class="col-9">
+<table class="table table-bordered table-hover">
+   <thead>
+      <tr>
+        <th scope="col">StudentName</th>
+        <th scope="col">Marks</th>
+        <th scope="col">Status</th>
+        <th colspan="3" class="text-center">Actions</th>
+      </tr>
+   </thead>
+   <tbody>
+   
+   
+  
+  <% @marks.each do |mark| %>
+     <tr>
+ <th scope="row"><%= mark[:student_name]%></th>  
+ <td><%= mark[:marks] %></td>
+ <td><%= mark[:status] %></td>
+ 
+ <td class="text-center"><%= link_to 'Edit',  edit_mark_path(mark[:student_id]),
+                                          class: 'btn btn-sm btn-warning' %></td> 
+ <td class="text-center"><%= link_to 'Delete', mark_path(mark[:student_id]),  method: :delete, data: {confirm: 'Are you sure?'},
+                                          class: 'btn btn-sm btn-danger' %></td> 
+ <td class="text-center"><%= link_to 'Show',mark_path(mark[:student_id]), class: 'btn btn-sm btn-primary' %></td>
+     </tr>
+     <% end %>
+     </tbody>
+</table>
+</div>
+</div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

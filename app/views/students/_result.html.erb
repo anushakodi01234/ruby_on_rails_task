@@ -1,0 +1,39 @@
+<% @students.each do |student|  %>
+        <tr>
+    <th scope="row"><%= student.name %></th> 
+    <td><%= student.gender %></td> 
+
+    <td><%= student.date_of_birth %></td> 
+    <td><%= student.email%></td> 
+    <td class="text-center">
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Edit
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Edit student</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render 'form' %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>      
+      </div>
+    </div>
+
+    </td>
+    <td class="text-center"><%= link_to 'Edit',  edit_student_path(student), 
+                                              class: 'btn btn-sm btn-warning' %></td> 
+    <td class="text-center"><%= link_to 'Delete', student_path(student), method: :delete, data: {confirm: 'Are you sure?'},
+                                              class: 'btn btn-sm btn-danger' %></td>
+        </tr>
+        <% end %>

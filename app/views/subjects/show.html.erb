@@ -1,0 +1,16 @@
+<h1>Showing subject details</h1>
+<h2><%= @subject.name%></h2>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Showing subject created</h5>
+    <p class="card-text"><strong>SubjectName: </strong><%= @subject.name%></p>
+    <%
+=begin%>
+ <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> 
+<%
+=end%>
+ <%= link_to "Back to subjects list", subjects_path, class: "btn btn-xs btn-primary" %>
+  </div>
+</div>

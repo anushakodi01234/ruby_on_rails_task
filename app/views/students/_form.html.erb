@@ -1,0 +1,46 @@
+<%= render 'shared/errors', obj: @student %>
+<%= form_with(model: @student, local: true ) do |f| %>
+
+<p>
+<strong><%= f.label :name, class:"form-label" %></strong><br>
+<%= f.text_field :name, class:"form-input" %>
+</p>
+<strong><%= f.label :gender, class:"form-label" %>   :   </strong>
+<%= f.radio_button :gender, "male" %>
+<%= f.label :gender_male, "male" %>
+<%= f.radio_button :gender, "female" %>
+<%= f.label :gender_female, "female" %><br/><br/>
+
+<%
+=begin%>
+ <p>
+<%= f.label :gender %><br/>
+<%= f.text_field :gender %>
+</p> 
+<%
+=end%>
+<p>
+<strong><%= f.label :DateOfBirth, class:"form-label" %></strong><br>
+<%= f.date_field :date_of_birth, class:"form-input" %><br>
+</p>
+
+<%
+=begin%>
+ <p>
+<%= f.label :date_of_birth %><br/>
+<%= f.text_field :date_of_birth %>
+</p> 
+<%
+=end%>
+
+<p>
+<strong><%= f.label :email, class:"form-label" %></strong><br>
+<%= f.text_field :email, class:"form-input" %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
+

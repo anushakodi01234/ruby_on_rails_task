@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @mark %>
+<%= form_with(model: @mark, local: true, id:"dropdown") do |f| %>
+<p>
+<%= f.label :StudentName %>
+<%= f.collection_select :student_id, Student.order(:name), :id, :name %>
+
+<% Subject.all.each  do |subject| %>
+
+<div class="field flex-box">
+  
+    <%= f.label subject.name, class:"label-width" %><br />
+    <%= number_field_tag "mark[subject_marks][" + subject.id.to_s + "]", @student&.marks&.find { |m| m.subject_id == subject.id }&.marks,  required: true, min: 0,max: 100%>
+  </div>
+   
+<% end %>
+</tbody>
+</table>
+<br>
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
